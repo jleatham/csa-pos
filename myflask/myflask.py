@@ -9,10 +9,12 @@ app = Flask(__name__)
 import time
 import atexit
 from apscheduler.schedulers.background import BackgroundScheduler
+from myScheduled import process_new_csv_files
 def print_date_time():
     print(time.strftime("%A, %d. %B %Y %I:%M:%S %p"))
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=print_date_time, trigger="interval", seconds=3)
+scheduler.add_job(func=print_date_time, trigger="interval", minutes=1)
+scheduler.add_job(func=process_new_csv_files, trigger="interval", seconds=5)
 scheduler.start()
 # Shut down the scheduler when exiting the app
 atexit.register(lambda: scheduler.shutdown())
