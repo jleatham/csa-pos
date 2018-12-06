@@ -19,38 +19,27 @@ global op_list
 
 #################Start main
 
+def print_test():
+    print("Hello apscheduler test")
 
-try:
-    if (sys.argv[1] == "test"):
-        prepare_test()
-    elif (sys.argv[1] == "upload"):
-        print("upload argv")
-        #added these two functions below, probably don't need to set a seperate command for these
-        create_monthly_csv(all_data_csv_filename)
+def process_new_csv_files():
+
+    file_index = []    
+    for file in glob.glob(home_file_path + '/*.[Cc][Ss][Vv]'):
+        file_index.append(file)
+
+
+    #create html table using csvtotable, installed on ubuntu server
+    if file_index:
+        to_csv_from_json_v2(file_index,all_data_csv_filename, non_error_pos_data_filename)
+        print ("all files processed")
+        #to_html_v1(all_data_csv_filename,all_data_html_filename)
+        create_area_reports(all_data_csv_filename,non_error_pos_data_filename,op_list)
+        #create_monthly_csv(all_data_csv_filename) #moved to area_report function
         create_html_tables()
-        #send_link_to_spark(roomId)
 
-except Exception as e:
-    pass
-    #print ("Problem with argv ")
-    #print (e)
-
-file_index = []    
-for file in glob.glob(home_file_path + '/*.[Cc][Ss][Vv]'):
-    file_index.append(file)
-
-
-#create html table using csvtotable, installed on ubuntu server
-if file_index:
-    to_csv_from_json_v2(file_index,all_data_csv_filename, non_error_pos_data_filename)
-    print ("all files processed")
-    #to_html_v1(all_data_csv_filename,all_data_html_filename)
-    create_area_reports(all_data_csv_filename,non_error_pos_data_filename,op_list)
-    #create_monthly_csv(all_data_csv_filename) #moved to area_report function
-    create_html_tables()
-
-else:
-    #print("no new files to process")
-    sys.exit(0)
-    #check_mbr_v1(329284198)
-####################End main
+    else:
+        print('no files to process')
+        pass
+    return
+    ####################End main

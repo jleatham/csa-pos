@@ -4,10 +4,20 @@ import json
 from POS_automation import *
 app = Flask(__name__)
 
+
+#apscheduler test
+import time
+import atexit
+from apscheduler.schedulers.background import BackgroundScheduler
+def print_date_time():
+    print(time.strftime("%A, %d. %B %Y %I:%M:%S %p"))
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=print_date_time, trigger="interval", seconds=3)
+scheduler.start()
+# Shut down the scheduler when exiting the app
+atexit.register(lambda: scheduler.shutdown())
+
 # @ signifies a decorator - way to wrap a function and modify its behavior
-
-
-
 @app.route('/')
 def index():
     #need to change this to /CSA
@@ -533,4 +543,4 @@ def realtimepath(path):
 if __name__ == "__main__":
     am_list_json = flask_load_json_to_mem(am_list_json_filename) #load json into memory
     #app.run(host='0.0.0.0',debug=True)
-    app.run(host='0.0.0.0',threaded=True, port=5000)
+    app.run(host='0.0.0.0',threaded=True, port=5000, use_reloader=False)

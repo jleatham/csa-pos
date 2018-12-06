@@ -42,6 +42,7 @@ from bs4 import BeautifulSoup as Soup
 from collections import deque
 import codecs
 from io import StringIO
+from secrets import pos_pass
 
 
 
@@ -54,7 +55,7 @@ from io import StringIO
 ####This was so that csvtotable would work with large csv files
 #
 
-POS_ADMIN_TOKEN= 'temp string change later'
+POS_ADMIN_TOKEN= pos_pass
 timestr = time.strftime("%Y%m%d-%H%M%S")
 now = datetime.now()
 #globals needed for sitewide reporting of when reports are ran
@@ -95,6 +96,8 @@ server_address = "http://123.changed.456:8080/filteredPOS/"
 
 #roomId = "Y2lzY29zcGFyazovL3VzL1JPT00vOWZjODRmMjAtN2QyYi0xMWU3LThmZjQtMWJhODMwMmUyODg3" #Houston POS room
 
+def print_test():
+    print("Hello apscheduler test")
 
 
 #Used to get the values of all the different teams in the database.  It returns the information in 2 formats.
