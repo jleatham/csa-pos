@@ -31,6 +31,7 @@ def process_new_csv_files():
 
     #create html table using csvtotable, installed on ubuntu server
     if file_index:
+        print("processing csv files")
         to_csv_from_json_v2(file_index,all_data_csv_filename, non_error_pos_data_filename)
         print ("all files processed")
         #to_html_v1(all_data_csv_filename,all_data_html_filename)

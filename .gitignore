@@ -6,7 +6,9 @@ to-do.txt
 *.png
 secrets.py
 filteredPOS
+filteredPOS-test
 oldPOS
+oldPOS-test
 *.out
 *.log
 __pycache__
