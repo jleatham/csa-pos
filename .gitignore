@@ -1,0 +1,14 @@
+*.json
+current_data.html
+to-do.txt
+.DS_Store
+*.mp4
+*.png
+secrets.py
+filteredPOS
+oldPOS
+*.out
+*.log
+__pycache__
+.venv
+*.sock
