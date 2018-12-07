@@ -19,8 +19,7 @@ global op_list
 
 #################Start main
 
-def print_test():
-    print("Hello apscheduler test")
+
 
 def process_new_csv_files():
 
@@ -31,7 +30,7 @@ def process_new_csv_files():
 
     #create html table using csvtotable, installed on ubuntu server
     if file_index:
-        print("processing csv files")
+        #print("processing csv files")
         to_csv_from_json_v2(file_index,all_data_csv_filename, non_error_pos_data_filename)
         print ("all files processed")
         #to_html_v1(all_data_csv_filename,all_data_html_filename)
@@ -40,7 +39,52 @@ def process_new_csv_files():
         create_html_tables()
 
     else:
-        print('no files to process')
+        #print('no files to process')
         pass
     return
+
+
+
+def purge_logs_of_static():
+    search_strings_to_remove = ["127.0.0.1",
+                                "foundation.css",
+                                "app.css",
+                                "foundation-icons.css",
+                                "jquery.js",
+                                "what-input.js",
+                                "app.js",
+                                "favicon.ico",
+                                "dynatable.css",
+                                "foundation.js",
+                                "dynatable.js",
+                                "WARNING:csvtotable",
+                                "Virtual scroll is enabled",
+                                "SettingWithCopyWarning",
+                                "slice from a DataFrame",
+                                "See the caveats in the documentation",
+                                "Try using .loc",
+                                "] = EMAIL",
+                                "No parser was explicitly specified",
+                                "The code that caused this warning",
+                                "BeautifulSoup",
+                                "to this:",
+                                "markup_type=",
+                                "editdistance.bycython.eval",
+                                "TypeError: object of type"
+                                ]   
+    f = open(home_file_path +"pos_log.out","r")
+    lines = f.readlines()
+    f.close()
+    f = open(home_file_path +"pos_log.out","w")
+    #print("starting loop")
+    for line in lines:
+        found_string = False
+        for search_string in search_strings_to_remove:
+            if search_string in line:
+                found_string = True
+        if not found_string:
+            f.write(line)
+    f.close()    
+
+
     ####################End main
