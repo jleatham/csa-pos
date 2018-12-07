@@ -6,15 +6,14 @@ app = Flask(__name__)
 
 
 #apscheduler test
-import time
+
 import atexit
 from apscheduler.schedulers.background import BackgroundScheduler
 from myScheduled import process_new_csv_files
-def print_date_time():
-    print(time.strftime("%A, %d. %B %Y %I:%M:%S %p"))
+
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=print_date_time, trigger="interval", minutes=1)
-scheduler.add_job(func=process_new_csv_files, trigger="interval", seconds=30)
+#scheduler.add_job(func=print_date_time, trigger="interval", minutes=1)
+scheduler.add_job(func=process_new_csv_files, trigger="interval", minutes=2)
 scheduler.start()
 # Shut down the scheduler when exiting the app
 atexit.register(lambda: scheduler.shutdown())
@@ -545,4 +544,4 @@ def realtimepath(path):
 if __name__ == "__main__":
     am_list_json = flask_load_json_to_mem(am_list_json_filename) #load json into memory
     #app.run(host='0.0.0.0',debug=True)
-    app.run(host='0.0.0.0',threaded=True, port=5000, use_reloader=False)
+    app.run(host='0.0.0.0', use_reloader=False)
