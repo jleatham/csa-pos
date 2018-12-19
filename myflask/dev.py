@@ -8,9 +8,6 @@ app = Flask(__name__)
 @app.route('/')
 def index():
 
-    except:
-        print("cannot process files as report is being ran")
-
     title = "POS Tool"
     description = "Not that kind of POS"
     pageType = 'test'    
