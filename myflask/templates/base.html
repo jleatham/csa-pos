@@ -1,0 +1,104 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="metaID" data-name="{{metaID}}" data-other="{{metaID}}">
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Flask Template</title>
+    {% endif %}
+    <link rel="stylesheet" href={{ url_for('static', filename='foundation.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='app.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='foundation-icons.css') }}>
+    <link rel="shortcut icon" href={{ url_for('static', filename='favicon.ico') }} />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.foundation.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.foundation.min.css" />
+    <link rel="stylesheet" href={{ url_for('static', filename='foundation-datepicker.min.css') }}>
+    
+    
+  </head>
+  <body>
+
+
+    
+    <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Architecture Week</li>
+            <li>
+                    <a href="{{ url_for('index') }}">Home</a>
+            </li>
+            <li>
+                    <a href="#">Architecture</a>
+                    <ul class="menu">
+                        <li><a href="{{ url_for('EN') }}">EN</a></li>
+                        <li><a href="{{ url_for('SEC') }}">SEC</a></li>
+                        <li><a href="{{ url_for('DC') }}">DC</a></li>
+                        <li><a href="{{ url_for('COLLAB') }}">COLLAB</a></li>
+                        <li><a href="{{ url_for('APP') }}">APP</a></li>
+                        <li><a href="{{ url_for('emailTest') }}">Email Test</a></li>
+
+                    </ul>
+            </li> 
+            <li>
+                    <a href="{{ url_for('eventTemplate') }}">Events</a>
+            </li>
+
+       
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+          </ul>
+        </div>
+      </div>  
+      
+      <!--
+      <hr>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <ul>
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
+      -->
+      {% block content %}{% endblock %}
+  
+  
+  
+      <script src={{ url_for('static', filename='vendor/jquery.js') }}></script>
+      <script src={{ url_for('static', filename='vendor/what-input.js') }}></script>
+      <script src={{ url_for('static', filename='vendor/foundation.js') }}></script>
+      <script src={{ url_for('static', filename='app.js') }}></script>
+      <script src={{ url_for('static', filename='vendor/foundation.core.js') }}></script>
+      <script src={{ url_for('static', filename='vendor/foundation.dropdownMenu.js') }}></script>
+      <script src={{ url_for('static', filename='vendor/foundation.util.box.js') }}></script>
+      <script src={{ url_for('static', filename='vendor/foundation.util.keyboard.js') }}></script>
+      <script src={{ url_for('static', filename='vendor/foundation.util.nest.js') }}></script>  
+      <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.18/js/dataTables.foundation.min.js"></script>
+      <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+      <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.foundation.min.js"></script>
+      <script src={{ url_for('static', filename='vendor/foundation-datepicker.min.js') }}></script>
+      
+
+      {% block javascript %} {% endblock %}
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

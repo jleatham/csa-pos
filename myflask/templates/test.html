@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+{% endblock %}
+
+
+{% block javascript %}
+   <!--  needs to be pure js, not jquery   <script src={{ url_for('static', filename='allForms.js') }}></script> -->
+   {% include 'jQuery.html' %}
+   <script>
+       $(document).ready( function () {
+            $('#eventTable').DataTable({
+                fixedHeader: true,
+                "pageLength": 20,
+                "scrollX": true
+               //not compatible with fixed header "scrollY": "500px",
+
+            });
+
+            $('#date').fdatepicker();
+            console.log("Hello test");
+            } );
+   </script>
+{% endblock %}  
