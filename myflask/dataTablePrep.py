@@ -1,6 +1,14 @@
+import pandas as pd
+from datetime import date
+from dateutil.relativedelta import relativedelta
+
 
 def pandasToDataTable(df,column,value):
-
+    df['Date'] = pd.to_datetime(df['Date'])
+    today = date.today()
+    six_months = today - relativedelta(months=+6)
+    df = df[(df['Date'] > pd.Timestamp(six_months)) & (df['Date'] <= pd.Timestamp(today))]
+    df['Date'] = df['Date'].dt.strftime('%b %d, %Y')
     data = df[df[column] == value]
     table = []
     for key, value in data.iterrows():
