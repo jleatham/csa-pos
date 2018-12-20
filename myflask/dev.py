@@ -16,10 +16,11 @@ def index():
     pageType = 'test'    
     metaID = 'test'
 
-    print(df)
-    user = df[df['Sort Here'] == 'cecgonza']
+    #print(df)
+    #user = df[df['Sort Here'] == 'cecgonza']
     table = []
-    for key, value in user.iterrows():
+    #for key, value in user.iterrows():
+    for key, value in df.iterrows():
         tableRowDict = {}
         pos         = value['POS ID']
         date        = value['Date']
