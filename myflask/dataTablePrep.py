@@ -14,7 +14,7 @@ def pandasToDataTable(df,column,value):
     for key, value in data.iterrows():
         tableRowDict = {}
         pos         = value['POS ID']
-        date        = value['Date']
+        posdate        = value['Date']
         sort        = value['Sort Here']
         am          = value['AM Credited']
         customer    = value['End Customer']
@@ -29,6 +29,6 @@ def pandasToDataTable(df,column,value):
         area        = value['Area']
         sl2         = value['SL2']
         sl1         = value['SL1']
-        tableRowDict = {"POS ID":pos,"Date":date,"Sort Here":sort,"AM Credited":am,"End Customer":customer,"Product ID":pid,"$$$":money,"Ship-To":shipTo,"Sold-To":soldTo,"Party ID":party,"Mode":mode,"Region":region,"Operation":op,"Area":area,"SL2":sl2,"SL1":sl1}
+        tableRowDict = {"POS ID":pos,"Date":posdate,"Sort Here":sort,"AM Credited":am,"End Customer":customer,"Product ID":pid,"$$$":money,"Ship-To":shipTo,"Sold-To":soldTo,"Party ID":party,"Mode":mode,"Region":region,"Operation":op,"Area":area,"SL2":sl2,"SL1":sl1}
         table.append(tableRowDict)
     return table
