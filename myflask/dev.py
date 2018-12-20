@@ -50,7 +50,7 @@ def index():
     return render_template("test.html", title=title, description=description, pageType=pageType, metaID=metaID, table=table)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',port=5001, debug=True)
     df = pd.DataFrame() # create empty dataframe                       
     df = pd.read_csv('./filteredPOS/US_COMMERCIAL_current_data.csv',low_memory=False, usecols=["POS ID","Date","Sort Here","AM Credited","End Customer","Product ID","$$$","Ship-To","Sold-To","Party ID","Mode","Region","Operation","Area","SL2","SL1"])
-    print(df)
+    print(df)    
+    app.run(host='0.0.0.0',port=5001, debug=True)
