@@ -61,7 +61,9 @@ def operation(op):
 
 
 if __name__ == "__main__":
+    print("before loading df")
     df = pd.DataFrame() # create empty dataframe                       
     df = pd.read_csv('./filteredPOS/US_COMMERCIAL_current_data.csv',low_memory=False, usecols=["POS ID","Date","Sort Here","AM Credited","End Customer","Product ID","$$$","Ship-To","Sold-To","Party ID","Mode","Region","Operation","Area","SL2","SL1"])
-    print(df)    
+    print(df) 
+    print("after loading df")   
     app.run(host='0.0.0.0',port=5001, debug=True)
