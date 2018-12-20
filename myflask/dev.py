@@ -66,4 +66,4 @@ if __name__ == "__main__":
     df = pd.read_csv('./filteredPOS/US_COMMERCIAL_current_data.csv',low_memory=False, usecols=["POS ID","Date","Sort Here","AM Credited","End Customer","Product ID","$$$","Ship-To","Sold-To","Party ID","Mode","Region","Operation","Area","SL2","SL1"])
     print(df) 
     print("after loading df")   
-    app.run(host='0.0.0.0',port=5001, debug=True)
+    app.run(host='0.0.0.0',port=5001, debug=True, use_reloader=False)
