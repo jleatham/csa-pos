@@ -1,7 +1,6 @@
-from dev import df
 
-def pandasToDataTable(column,value):
-    global df
+def pandasToDataTable(df,column,value):
+
     data = df[df[column] == value]
     table = []
     for key, value in data.iterrows():

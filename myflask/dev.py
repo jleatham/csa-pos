@@ -61,7 +61,8 @@ def am(cco):
     pageType = 'test'    
     metaID = 'test'
 
-    table = pandasToDataTable("Sort Here",cco)
+    global df
+    table = pandasToDataTable(df,"Sort Here",cco)
         #print(table)
     end_time = datetime.now()
     end = int(time.time())
