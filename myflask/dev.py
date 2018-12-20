@@ -15,6 +15,7 @@ def index():
 
     df = pd.DataFrame() # create empty dataframe                       
     df = pd.read_csv('./filteredPOS/US_COMMERCIAL_current_data.csv',low_memory=False, usecols=["POS ID","Date","Sort Here","AM Credited","End Customer","Product ID","$$$","Ship-To","Sold-To","Party ID","Mode","Region","Operation","Area","SL2","SL1"])
+    print(df)
     user = df[df['Sort Here'] == 'cecgonza']
     tableRowDict
     table = []
@@ -37,6 +38,7 @@ def index():
         sl1         = value['SL1']
         tableRowDict = {"POS ID":pos,"Date":date,"Sort Here":sort,"AM Credited":am,"End Customer":customer,"Product ID":pid,"$$$":money,"Ship-To":shipTo,"Sold-To":soldTo,"Party ID":party,"Mode":mode,"Region":region,"Operation":op,"Area":area,"SL2":sl2,"SL1":sl1}
         table.append(tableRowDict)
+        print(table)
 
     return render_template("test.html", title=title, description=description, pageType=pageType, metaID=metaID, table=table)
 
