@@ -17,10 +17,10 @@ def index():
     metaID = 'test'
 
     #print(df)
-    #user = df[df['Sort Here'] == 'cecgonza']
+    user = df[df['Sort Here'] == 'cecgonza']
     table = []
-    #for key, value in user.iterrows():
-    for key, value in df.iterrows():
+    for key, value in user.iterrows():  #0 sec
+    #for key, value in df.iterrows():   #4 min to process then crash
         tableRowDict = {}
         pos         = value['POS ID']
         date        = value['Date']
@@ -49,6 +49,52 @@ def index():
     s = m[1]  # seconds
     print('Total run time = {0} minutes , {1} seconds'.format(m[0],s))
     return render_template("test.html", title=title, description=description, pageType=pageType, metaID=metaID, table=table)
+
+@app.route('/am/<cco>')
+def am(cco):
+    start_time = datetime.now()
+    start = int(time.time())
+
+    global df
+    title = "POS Tool"
+    description = "Not that kind of POS"
+    pageType = 'test'    
+    metaID = 'test'
+
+    #print(df)
+    user = df[df['Sort Here'] == cco]
+    table = []
+    for key, value in user.iterrows():  #0 sec
+    #for key, value in df.iterrows():   #4 min to process then crash
+        tableRowDict = {}
+        pos         = value['POS ID']
+        date        = value['Date']
+        sort        = value['Sort Here']
+        am          = value['AM Credited']
+        customer    = value['End Customer']
+        pid         = value['Product ID']
+        money       = value['$$$']
+        shipTo      = value['Ship-To']
+        soldTo      = value['Sold-To']
+        party       = value['Party ID']
+        mode        = value['Mode']
+        region      = value['Region']
+        op          = value['Operation']
+        area        = value['Area']
+        sl2         = value['SL2']
+        sl1         = value['SL1']
+        tableRowDict = {"POS ID":pos,"Date":date,"Sort Here":sort,"AM Credited":am,"End Customer":customer,"Product ID":pid,"$$$":money,"Ship-To":shipTo,"Sold-To":soldTo,"Party ID":party,"Mode":mode,"Region":region,"Operation":op,"Area":area,"SL2":sl2,"SL1":sl1}
+        table.append(tableRowDict)
+        #print(table)
+    end_time = datetime.now()
+    end = int(time.time())
+    d = divmod(end - start,86400)  # days
+    h = divmod(d[1],3600)  # hours
+    m = divmod(h[1],60)  # minutes
+    s = m[1]  # seconds
+    print('Total run time = {0} minutes , {1} seconds'.format(m[0],s))
+    return render_template("test.html", title=title, description=description, pageType=pageType, metaID=metaID, table=table)
+
 
 if __name__ == "__main__":
     df = pd.DataFrame() # create empty dataframe                       
