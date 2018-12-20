@@ -48,7 +48,7 @@ def operation(op):
     metaID = op
 
     global df
-    table = pandasToDataTable(df,"Operation",op)
+    table = pandasToDataTable(df,"Operation","South West Select Operation")
         #print(table)
     end_time = datetime.now()
     end = int(time.time())
