@@ -9,13 +9,13 @@ app = Flask(__name__)
 def index():
     start_time = datetime.now()
     start = int(time.time())
+
+    global df
     title = "POS Tool"
     description = "Not that kind of POS"
     pageType = 'test'    
     metaID = 'test'
 
-    df = pd.DataFrame() # create empty dataframe                       
-    df = pd.read_csv('./filteredPOS/US_COMMERCIAL_current_data.csv',low_memory=False, usecols=["POS ID","Date","Sort Here","AM Credited","End Customer","Product ID","$$$","Ship-To","Sold-To","Party ID","Mode","Region","Operation","Area","SL2","SL1"])
     print(df)
     user = df[df['Sort Here'] == 'cecgonza']
     table = []
@@ -51,3 +51,6 @@ def index():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5001, debug=True)
+    df = pd.DataFrame() # create empty dataframe                       
+    df = pd.read_csv('./filteredPOS/US_COMMERCIAL_current_data.csv',low_memory=False, usecols=["POS ID","Date","Sort Here","AM Credited","End Customer","Product ID","$$$","Ship-To","Sold-To","Party ID","Mode","Region","Operation","Area","SL2","SL1"])
+    print(df)

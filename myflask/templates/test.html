@@ -1,71 +1,84 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>title = {{ title }}</h1>
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+        <div class="medium-1 large-1 small-12 cell"></div>
+        <div class="medium-10 large-10 small-12 cell">
+      <h1>title = {{ title }}</h1>
 
-<table id="eventTable" class="display nowrap compact" style="width:100%">
-  <thead>
-  {% if table %}
-<!-- Header  --><tr>
-                  <th>POS ID</th>
-                  <th>Date</th>
-                  <th>Sort Here</th>
-                  <th>AM Credited</th>
-                  <th>End Customer</th>
-                  <th>Product ID</th>
-                  <th>$$$</th>
-                  <th>Ship-To</th>
-                  <th>Sold-To</th>
-                  <th>Party ID</th>
-                  <th>Mode</th>
-                  <th>Region</th>
-                  <th>Operation</th>
-                  <th>Area</th>
-                  <th>SL2</th>
-                  <th>SL1</th>
+      <table id="posTable" class="display nowrap compact" style="width:100%">
+        <thead>
+        {% if table %}
+      <!-- Header  --><tr>
+                        <th>POS ID</th>
+                        <th>Date</th>
+                        <th>Sort Here</th>
+                        <th>AM Credited</th>
+                        <th>End Customer</th>
+                        <th>Product ID</th>
+                        <th>$$$</th>
+                        <th>Ship-To</th>
+                        <th>Sold-To</th>
+                        <th>Party ID</th>
+                        <th>Mode</th>
+                        <th>Region</th>
+                        <th>Operation</th>
+                        <th>Area</th>
+                        <th>SL2</th>
+                        <th>SL1</th>
 
-          </tr>
-          
-  </thead>
-  <tbody>
-          {% for i in table %}
-<!-- Body    --><tr>
-          
-                  <td >{{ i["POS ID"] }}</td>
-                  <td >{{ i["Date"] }}</td>
-                  <td >{{ i["Sort Here"] }}</td>
-                  <td >{{ i["AM Credited"] }}</td>
-                  <td >{{ i["End Customer"] }}</td>
-                  <td >{{ i["Product ID"] }}</td>
-                  <td >{{ i["$$$"] }}</td>
-                  <td >{{ i["Ship-To"] }}</td>
-                  <td >{{ i["Sold-To"] }}</td>
-                  <td >{{ i["Party ID"] }}</td>
-                  <td >{{ i["Mode"] }}</td>
-                  <td >{{ i["Region"] }}</td>
-                  <td >{{ i["Operation"] }}</td>
-                  <td >{{ i["Area"] }}</td>
-                  <td >{{ i["SL2"] }}</td>
-                  <td >{{ i["SL1"] }}</td>          
-                          
-                  
-          </tr> 
-          {% endfor %} 
-  {% endif %}
+                </tr>
+                
+        </thead>
+        <tbody>
+                {% for i in table %}
+      <!-- Body    --><tr>
+                
+                        <td >{{ i["POS ID"] }}</td>
+                        <td >{{ i["Date"] }}</td>
+                        <td >{{ i["Sort Here"] }}</td>
+                        <td >{{ i["AM Credited"] }}</td>
+                        <td >{{ i["End Customer"] }}</td>
+                        <td >{{ i["Product ID"] }}</td>
+                        <td >{{ i["$$$"] }}</td>
+                        <td >{{ i["Ship-To"] }}</td>
+                        <td >{{ i["Sold-To"] }}</td>
+                        <td >{{ i["Party ID"] }}</td>
+                        <td >{{ i["Mode"] }}</td>
+                        <td >{{ i["Region"] }}</td>
+                        <td >{{ i["Operation"] }}</td>
+                        <td >{{ i["Area"] }}</td>
+                        <td >{{ i["SL2"] }}</td>
+                        <td >{{ i["SL1"] }}</td>          
+                                
                         
-  </tbody>
-</table>
-
+                </tr> 
+                {% endfor %} 
+        {% endif %}
+                              
+        </tbody>
+      </table>
+      <div class="medium-1 large-1 small-12 cell"></div>
+      </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block javascript %}
 
    <script>
        $(document).ready( function () {
-            $('#eventTable').DataTable({
+            $('#posTable').DataTable({
                 fixedHeader: true,
                 "pageLength": 20,
-                "scrollX": true
+                "scrollX": true,
+                responsive: {
+                    details: {
+                        type: 'column',
+                        target: -1
+                    }
+                }
                //not compatible with fixed header "scrollY": "500px",
 
             });
