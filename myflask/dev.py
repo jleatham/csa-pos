@@ -17,9 +17,9 @@ def index():
     df = pd.read_csv('./filteredPOS/US_COMMERCIAL_current_data.csv',low_memory=False, usecols=["POS ID","Date","Sort Here","AM Credited","End Customer","Product ID","$$$","Ship-To","Sold-To","Party ID","Mode","Region","Operation","Area","SL2","SL1"])
     print(df)
     user = df[df['Sort Here'] == 'cecgonza']
-    tableRowDict
     table = []
     for key, value in user.iterrows():
+        tableRowDict = {}
         pos         = value['POS ID']
         date        = value['Date']
         sort        = value['Sort Here']
