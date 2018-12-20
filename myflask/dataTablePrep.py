@@ -5,11 +5,12 @@ from dateutil.relativedelta import relativedelta
 
 def pandasToDataTable(df,column,value):
     df['Date'] = pd.to_datetime(df['Date'])
-    today = date.today()
-    six_months = today - relativedelta(months=+6)
-    df = df[(df['Date'] > pd.Timestamp(six_months)) & (df['Date'] <= pd.Timestamp(today))]
+    #today = date.today()
+    #six_months = today - relativedelta(months=+6)
+    #df = df[(df['Date'] > pd.Timestamp(six_months)) & (df['Date'] <= pd.Timestamp(today))]
     df['Date'] = df['Date'].dt.strftime('%Y-%m-%d')
     data = df[df[column] == value]
+    data.sort_values(by=['Date'], inplace=True, ascending=False)
     table = []
     for key, value in data.iterrows():
         tableRowDict = {}
