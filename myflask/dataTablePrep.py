@@ -10,7 +10,7 @@ def pandasToDataTable(df,column,value):
     #df = df[(df['Date'] > pd.Timestamp(six_months)) & (df['Date'] <= pd.Timestamp(today))]
     #df['Date'] = df['Date'].dt.strftime('%Y-%m-%d')
     data = df[df[column] == value]
-    data = data.sort_values(by=['Date'], inplace=True, ascending=False)
+    data = data.sort_values(by=['Date'], ascending=False)
     data['Date'] = data['Date'].dt.strftime('%Y-%m-%d')
     data.truncate(after=10000)
     print(data)
