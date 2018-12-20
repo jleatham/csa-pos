@@ -3,7 +3,70 @@
 {% block content %}
 <h1>{{ title }}</h1>
 {% endblock %}
+<table id="eventTable" class="display nowrap compact" style="width:100%">
+  <thead>
+  {% if table %}
+<!-- Header  --><tr>
+                  <th>POS ID</th>
+                  <th>Date</th>
+                  <th>Sort Here</th>
+                  <th>AM Credited</th>
+                  <th>End Customer</th>
+                  <th>Product ID</th>
+                  <th>$$$</th>
+                  <th>Ship-To</th>
+                  <th>Sold-To</th>
+                  <th>Party ID</th>
+                  <th>Mode</th>
+                  <th>Region</th>
+                  <th>Operation</th>
+                  <th>Area</th>
+                  <th>SL2</th>
+                  <th>SL1</th>
 
+          </tr>
+          
+  </thead>
+  <tbody>
+          {% for i in table %}
+<!-- Body    --><tr>
+          
+          
+                  <td ><input type="checkbox" name="rowID" value="{{ i.rowID }}"></td>
+                  <td >{{ i.region }}</td>
+                  <td >{{ i.date }}</td>
+                  <td >{{ i.arch }}</td>
+                  <td >{{ i.summary }}</td>
+                  <td >{{ i.city }}</td>
+                  <td >{{ i.address }}</td>
+                  <td >{{ i.content }}</td>
+                  <td >{{ i.reg }}</td>
+                  <td >{{ i.email }}</td>
+                  
+                  <td >{{ i.pos }}</td>
+                  <td >{{ i.date }}</td>
+                  <td >{{ i.sort }}</td>
+                  <td >{{ i.am }}</td>
+                  <td >{{ i.customer }}</td>
+                  <td >{{ i.pid }}</td>
+                  <td >{{ i.money }}</td>
+                  <td >{{ i.shipTo }}</td>
+                  <td >{{ i.soldTo }}</td>
+                  <td >{{ i.party }}</td>
+                  <td >{{ i.mode }}</td>
+                  <td >{{ i.region }}</td>
+                  <td >{{ i.op }}</td>
+                  <td >{{ i.area }}</td>
+                  <td >{{ i.sl2 }}</td>
+                  <td >{{ i.sl1 }}</td>
+                          
+                  
+          </tr> 
+          {% endfor %} 
+  {% endif %}
+                        
+  </tbody>
+</table>
 
 {% block javascript %}
 
