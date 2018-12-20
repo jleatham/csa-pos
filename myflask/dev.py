@@ -6,7 +6,7 @@ from dataTablePrep import pandasToDataTable
 import pandas as pd
 from datetime import date, datetime
 import time
-from dateutil.relativedelta import relativedelta
+
 
 app = Flask(__name__)
 

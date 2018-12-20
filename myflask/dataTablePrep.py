@@ -8,13 +8,13 @@ def pandasToDataTable(df,column,value):
     today = date.today()
     six_months = today - relativedelta(months=+6)
     df = df[(df['Date'] > pd.Timestamp(six_months)) & (df['Date'] <= pd.Timestamp(today))]
-    df['Date'] = df['Date'].dt.strftime('%b %d, %Y')
+    df['Date'] = df['Date'].dt.strftime('%Y-%m-%d')
     data = df[df[column] == value]
     table = []
     for key, value in data.iterrows():
         tableRowDict = {}
         pos         = value['POS ID']
-        posdate        = value['Date']
+        posdate     = value['Date']
         sort        = value['Sort Here']
         am          = value['AM Credited']
         customer    = value['End Customer']
