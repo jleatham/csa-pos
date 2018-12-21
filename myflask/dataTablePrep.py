@@ -13,7 +13,7 @@ def pandasToDataTable(df,column,value):
     data.sort_values(by=['Date'], inplace=True, ascending=False)
     data = data.reset_index(drop=True)
     data['Date'] = data['Date'].dt.strftime('%Y-%m-%d')
-    data = data.truncate(after=10000)
+    data = data.truncate(after=1000)
     print(data)
     table = []
     for key, value in data.iterrows():
