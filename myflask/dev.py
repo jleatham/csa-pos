@@ -72,7 +72,78 @@ def devam2():
     description = "Not that kind of POS"
     pageType = 'test'    
     metaID = 'test'
-    return render_template("devam2.html", title=title, description=description, pageType=pageType, metaID=metaID)
+    tableData = [
+        [
+        "1",
+        "Armand",
+        "Warren",
+        "56045",
+        "Taiwan, Province of China"
+        ],
+        [
+        "2",
+        "Xenos",
+        "Salas",
+        "71090",
+        "Liberia"
+        ],
+        [
+        "3",
+        "Virginia",
+        "Whitaker",
+        "62723",
+        "Nicaragua"
+        ],
+        [
+        "4",
+        "Kato",
+        "Patrick",
+        "97662",
+        "Palau"
+        ],
+        [
+        "5",
+        "Penelope",
+        "Hensley",
+        "76634",
+        "Greenland"
+        ],
+        [
+        "6",
+        "Georgia",
+        "Erickson",
+        "81358",
+        "Bolivia"
+        ],
+        [
+        "7",
+        "Shad",
+        "Pena",
+        "20600",
+        "Palestinian Territory, Occupied"
+        ],
+        [
+        "8",
+        "Tanisha",
+        "Humphrey",
+        "93371",
+        "Kenya"
+        ],
+        [
+        "9",
+        "Claire",
+        "Espinoza",
+        "I8S 2S8",
+        "Panama"
+        ],
+        [
+        "10",
+        "Raya",
+        "Tucker",
+        "O8D 8W7",
+        "Botswana"
+        ]]
+    return render_template("devam2.html", title=title, description=description, pageType=pageType, metaID=metaID, tableData=tableData)
 
 if __name__ == "__main__":
     print("before loading df")

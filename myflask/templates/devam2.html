@@ -34,9 +34,10 @@
     <script>
        $(document).ready( function () {
 
+            var data = {{ tableData|safe }};
             var table = $('#posTable').DataTable( {
-                ajax:           "./templates/2500.txt",
-                //data:           data,
+                //ajax:           "./templates/2500.txt",
+                data:           data,
                 deferRender:    true,
                 scrollY:        200,
                 //scrollX:        true,
