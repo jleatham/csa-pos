@@ -51,12 +51,13 @@
                 data:           data,
                 deferRender:    true,
                 scrollY:        450,
-                scrollX:        "100%",
+                scrollX:        true,
                 scrollCollapse: true,
                 scroller:       true
             } );
         
-            new $.fn.dataTable.FixedColumns( table );            
+            new $.fn.dataTable.FixedColumns( table );      
+            $('#posTable').DataTable().draw();      
 
 
 
