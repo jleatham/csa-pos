@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, send_from_directory
 from flask.json import jsonify
 import json
 #from POS_automation import *
-from dataTablePrep import pandasToDataTable
+from dataTablePrep import pandasToDataTable, pandasToDataTable_v2
 import pandas as pd
 from datetime import date, datetime
 import time
@@ -85,7 +85,7 @@ def devam2():
     m = divmod(h[1],60)  # minutes
     s = m[1]  # seconds
     print('Total run time = {0} minutes , {1} seconds'.format(m[0],s))    
-    
+
     return render_template("devam2.html", title=title, description=description, pageType=pageType, metaID=metaID, tableData=tableData)
 
 if __name__ == "__main__":
