@@ -65,14 +65,14 @@ def operation(op):
     return render_template("am.html", title=title, description=description, pageType=pageType, metaID=metaID, table=table)
 
 
-@app.route('/dev-am2')
-def dev-am2():
+@app.route('/devam2')
+def devam2():
 
     title = "scroller test"
     description = "Not that kind of POS"
     pageType = 'test'    
     metaID = 'test'
-    return render_template("dev-am2.html", title=title, description=description, pageType=pageType, metaID=metaID)
+    return render_template("devam2.html", title=title, description=description, pageType=pageType, metaID=metaID)
 
 if __name__ == "__main__":
     print("before loading df")
