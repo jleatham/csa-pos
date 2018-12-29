@@ -7,7 +7,7 @@
         <div class="medium-10 large-10 small-12 cell">
       <h1>{{ title }}</h1>
       
-      <table id="posTable" class="display nowrap" style="width:4000px">
+      <table id="posTable" class="display nowrap" style="width:100%">
             <thead>
                 <tr>
                         <th>POS ID</th>
@@ -51,13 +51,12 @@
                 data:           data,
                 deferRender:    true,
                 scrollY:        450,
-                scrollX:        true,
+                //scrollX:        true,
                 scrollCollapse: true,
                 scroller:       true
             } );
         
-            new $.fn.dataTable.FixedColumns( table );      
-            $('#posTable').DataTable().draw();      
+            new $.fn.dataTable.FixedColumns( table );          
 
 
 
