@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+        <div class="medium-1 large-1 small-12 cell"></div>
+        <div class="medium-10 large-10 small-12 cell">
+      <h1>{{ title }}</h1>
+      
+      <table id="example" class="stripe row-border order-column nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>ZIP / Post code</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+        </table>
+
+      <div class="medium-1 large-1 small-12 cell"></div>
+      </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+
+
+ 
+    <script src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
+    <script src="https://cdn.datatables.net/scroller/1.5.1/js/dataTables.scroller.min.js"></script>
+    <script>
+       $(document).ready( function () {
+
+            var data = {
+                "aaData": [
+                    [
+                    "1",
+                    "Armand",
+                    "Warren",
+                    "56045",
+                    "Taiwan, Province of China"
+                    ],
+                    [
+                    "2",
+                    "Xenos",
+                    "Salas",
+                    "71090",
+                    "Liberia"
+                    ],
+                    [
+                    "3",
+                    "Virginia",
+                    "Whitaker",
+                    "62723",
+                    "Nicaragua"
+                    ],
+                    [
+                    "4",
+                    "Kato",
+                    "Patrick",
+                    "97662",
+                    "Palau"
+                    ],
+                    [
+                    "5",
+                    "Penelope",
+                    "Hensley",
+                    "76634",
+                    "Greenland"
+                    ],
+                    [
+                    "6",
+                    "Georgia",
+                    "Erickson",
+                    "81358",
+                    "Bolivia"
+                    ],
+                    [
+                    "7",
+                    "Shad",
+                    "Pena",
+                    "20600",
+                    "Palestinian Territory, Occupied"
+                    ],
+                    [
+                    "8",
+                    "Tanisha",
+                    "Humphrey",
+                    "93371",
+                    "Kenya"
+                    ],
+                    [
+                    "9",
+                    "Claire",
+                    "Espinoza",
+                    "I8S 2S8",
+                    "Panama"
+                    ],
+                    [
+                    "10",
+                    "Raya",
+                    "Tucker",
+                    "O8D 8W7",
+                    "Botswana"
+                    ]  
+                    ]
+                }
+
+            var table = $('#posTable').DataTable( {
+                //ajax:           "../data/2500.txt",
+                data:           data,
+                deferRender:    true,
+                scrollY:        200,
+                scrollX:        true,
+                scrollCollapse: true,
+                scroller:       true
+            } );
+        
+            new $.fn.dataTable.FixedColumns( table );            
+
+
+
+
+            $('#date').fdatepicker();
+            console.log("Hello test");
+            } );
+    </script>
+{% endblock %}  
