@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, send_from_directory
 from flask.json import jsonify
 import json
 #from POS_automation import *
-from dataTablePrep import pandasToDataTable, pandasToDataTable_v2
+from dataTablePrep import pandasToDataTable, pandasToDataTable_v2, pandasToDataTable_v3
 import pandas as pd
 from datetime import date, datetime
 import time
@@ -70,13 +70,13 @@ def devam2():
     start_time = datetime.now()
     start = int(time.time())
 
-    title = "scroller test"
+    title = "Defer Render"
     description = "Not that kind of POS"
     pageType = 'test'    
     metaID = 'test'
 
     global df
-    tableData = pandasToDataTable_v2(df,"Operation","South West Select Operation")
+    tableData = pandasToDataTable_v3(df,"Operation","South West Select Operation",0,10500)
 
     end_time = datetime.now()
     end = int(time.time())
