@@ -67,6 +67,8 @@ def operation(op):
 
 @app.route('/devam2')
 def devam2():
+    timeframe = request.args.get('timeframe')
+
     start_time = datetime.now()
     start = int(time.time())
 
@@ -76,7 +78,10 @@ def devam2():
     metaID = 'test'
 
     global df
-    tableData = pandasToDataTable_v3(df,"Operation","South West Select Operation",0,10500)
+    if timeframe == 'all':
+        tableData = pandasToDataTable_v3(df,"Operation","South West Select Operation",0,999999)
+    else:
+        tableData = pandasToDataTable_v3(df,"Operation","South West Select Operation",0,9999)
 
     end_time = datetime.now()
     end = int(time.time())

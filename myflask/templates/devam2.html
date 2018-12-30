@@ -6,6 +6,8 @@
         <div class="medium-1 large-1 small-12 cell"></div>
         <div class="medium-10 large-10 small-12 cell">
       <h1>{{ title }}</h1>
+      <a href="{{ url_for('devam2', timeframe='recent') }}">Recent Data</a>
+      <a href="{{ url_for('devam2', timeframe='all') }}">All Data</a>
       
       <table id="posTable" class="display nowrap" style="width:100%">
             <thead>
@@ -63,6 +65,7 @@
                     data:           data,
                     deferRender:    true,      
                     fixedHeader:    true,
+                    "order":        [[ 1, "desc" ]],
                     "pageLength":   25,
                     "scrollX":      true
                    //not compatible with fixed header "scrollY": "500px",
