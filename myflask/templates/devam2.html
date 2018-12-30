@@ -46,6 +46,7 @@
        $(document).ready( function () {
 
             var data = {{ tableData|safe }};
+            /*
             var table = $('#posTable').DataTable( {
                 //ajax:           "./templates/2500.txt",
                 data:           data,
@@ -57,11 +58,17 @@
             } );
         
             new $.fn.dataTable.FixedColumns( table );          
+            */
+            $('#posTable').DataTable({
+                    data:           data,
+                    deferRender:    true,      
+                    fixedHeader:    true,
+                    "pageLength":   20,
+                    "scrollX":      true
+                   //not compatible with fixed header "scrollY": "500px",
 
+                });
 
-
-
-            $('#date').fdatepicker();
             console.log("Hello test");
             } );
     </script>
